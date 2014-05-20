@@ -1,4 +1,6 @@
 import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.util.LinkedList;
 
 import javax.swing.JPanel;
@@ -56,5 +58,20 @@ public class VDrawingArea extends JPanel{
 		if(this.figureList.size()==0)
 			this.index=-1;				
 	}
+	
+	public Model getFigureSelection(){
+		Model res;
+		if(index>=0 && this.figureList.size()!=0)
+			res = figureList.get(index);
+		else
+			res = null;
+		return res;
+	}
+	
+	public void paintComponent(Graphics g) {
+    	super.paintComponent(g);
+    	for(int i = 0; i< this.figureList.size() ; i++)
+    		this.figureList.get(i).display(g);
+    }
 
 }
