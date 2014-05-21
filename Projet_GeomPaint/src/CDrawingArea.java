@@ -1,14 +1,41 @@
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
+import java.util.LinkedList;
+
+import javax.swing.SwingUtilities;
 
 
 public class CDrawingArea implements MouseListener, MouseMotionListener {
+	
+	private LinkedList<Model> figureList;
+	private int index;
+	private int x, lastx, y, lasty, point;
+	private boolean inside;
+	private Point p;
 
-	@Override
+	
 	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
-		
+		if(SwingUtilities.isLeftMouseButton(e) && figureList.size() > 0 ){
+			x = e.getX();
+			y = e.getY();
+			p = new Point(x, y);
+			
+			if( figureList.size() != 0){
+				//modifier la figure
+				if(figureList.get(index).isSelected() && isNearTo(p)){
+				figureList.get(index).translate(x, y);
+				}
+				
+				//deplacer la figure
+				if(figureList.get(index).isSelected()/* && souris dans la figure*/){
+					
+				}
+			
+			lastx = e.getX();
+			lasty = e.getY();
+			}
+		}
 	}
 
 	@Override
@@ -19,7 +46,9 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		// TODO Auto-generated method stub
+		if(SwingUtilities.isLeftMouseButton(e) && figureList.size() > 0 ){
+			
+		}
 		
 	}
 
