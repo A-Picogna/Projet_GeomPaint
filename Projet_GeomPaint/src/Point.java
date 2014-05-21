@@ -5,10 +5,10 @@
  */
 public class Point {
 
-
 ////////////////////
 //   ATTRIBUTES   //
 ////////////////////
+	
 	/**
 	 * Attributes x and y corresponding respectively to
 	 * the abscissa and the ordinate of the Point.
@@ -46,8 +46,6 @@ public class Point {
 			this.y = ord;
 		}
 	}
-
-
 
 ///////////////////////
 // GETTERS & SETTERS //
@@ -88,6 +86,5 @@ public class Point {
 	{
 		this.y = y;
 	}
-	
 
 }
