@@ -119,6 +119,9 @@ public class VDrawingArea extends JPanel{
     		this.figureList.get(i).display(g);
     }
 	
+	public void select(){
+		
+	}
 	
 
 }
