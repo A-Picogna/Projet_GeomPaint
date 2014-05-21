@@ -29,7 +29,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 				}
 				
 				//deplacer la figure
-				if(this.model.getFigureList().get(index).isSelected() && this.model.getFigureList().getSelected().isInside()){
+				if(this.model.getFigureList().get(index).isSelected() && this.isInside()){
 					
 				}
 			
@@ -47,8 +47,10 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
-		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureListe().size() > 0 ){
-			if(this.model.getfigureList())
+		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureList().size() > 0 ){
+			if(this.model.getFigureList()){
+				
+			}
 		}
 		
 	}
@@ -76,7 +78,11 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 		// TODO Auto-generated method stub
 		
 	}
-	
+	/**
+	 * Methode qui renvoie le point plus proche a la souris
+	 * @param p point qui represente la position de la souris
+	 * @return closest point plus proche a la souris
+	 */
 	public Point getClosestPoint(Point p){
 		Point closest;
 		int res = 0;
