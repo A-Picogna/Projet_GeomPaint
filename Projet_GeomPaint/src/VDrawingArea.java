@@ -4,7 +4,7 @@ import java.awt.Graphics2D;
 import java.util.LinkedList;
 
 import javax.swing.JPanel;
-//m
+
 public class VDrawingArea extends JPanel{
 	
 	private LinkedList<Model> figureList;
