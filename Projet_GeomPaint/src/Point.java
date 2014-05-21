@@ -59,6 +59,22 @@ public class Point {
 		return (p.getX() < this.getX()+5 && p.getX() > this.getX()-5
 			&& p.getY() < this.getY()+5 && p.getY() > this.getY()-5);
 	}
+	
+	
+	/**
+	 * Method distance(Point)
+	 * computes the distance of the calling point to the point given as argument.
+	 * @param p - Point to calculate the distance to.
+	 * @return the distance of the calling point to the point given as argument
+	 */
+	public int distance(Point p)
+	{
+		int xp = p.getX();
+		int yp = p.getY();
+		
+		return (int) Math.sqrt((this.getY()-yp)*(this.getY()-yp) + (this.getX()-xp)*(this.getX()-xp));
+		
+	}
 
 ///////////////////////
 // GETTERS & SETTERS //

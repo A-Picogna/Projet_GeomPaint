@@ -5,55 +5,69 @@ import java.util.LinkedList;
 public class Model {
 	
 	// ATTRIBUTE
-	
+	/**
+	 * LinkedList containing all the created figures.
+	 */
 	private LinkedList<GeomShape> figureList;
 	
 	// CONSTRUCTOR
 	
+	/**
+	 * No-Arg constructor of the class Model
+	 * initiates a new LinkedList.
+	 */
 	public Model() {
-    	figureList = new LinkedList<Model>();   	
+    	figureList = new LinkedList<GeomShape>();   	
     }
 	
 	// METHODS
 	
-	public LinkedList<Model> getfigureList() {
-		return figureList;
-	}
 
-	public void addFigure(Model m) {
+	/**
+	 * Method addFigure(GeomShape)
+	 * adds a figure to the figureList attribute.
+	 * @param f - figure to be added to the figureList.
+	 */
+	public void addFigure(GeomShape f) {
 		if (figureList.isEmpty()){
-			figureList.add(m);
+			figureList.add(f);
 			figureList.get(figureList.size() - 1).select();
 		}
 		else{
-			this.unSelectAll();
-			figureList.add(m);
+			this.unselectAll();
+			figureList.add(f);
 			figureList.get(figureList.size() - 1).select();
 		}
 	}
 	
-	public void unSelectAll(){
-		for(int i=0 ; i < figureList.size() ; i++;)
-			this.figureList.get(i).unSelect();		
+	
+	/**
+	 * Method unselectAll()
+	 * Goes through the figureList and unselects all the figures.
+	 */
+	public void unselectAll(){
+		for(int i=0 ; i < figureList.size() ; i++)
+			this.figureList.get(i).unselect();		
 	}
 	
-	public void deletefigure(Model mod){
+	/**
+	 * Method deleteFigure()
+	 * @param mod
+	 */
+	public void deleteFigure(Model mod){
 					
 	}
 	
 	
 	//GETTER & SETTER
 	
-	public void setfigureList(LinkedList<Model> figureList) {
+	public LinkedList<GeomShape> getFigureList() {
+		return figureList;
+	}
+	
+	public void setfigureList(LinkedList<GeomShape> figureList) {
 		this.figureList = figureList;
 	}
 
-	
-	public static int getIndex() {
-		return index;
-	}
 
-	public static void setIndex(int index) {
-		VDrawingArea.index = index;
-	}
 }

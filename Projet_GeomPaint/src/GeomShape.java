@@ -62,7 +62,7 @@ public class GeomShape {
 
 	/**
 	 * Method setColour(Color)
-	 * @param colour - coour to be given to the calling figure.
+	 * @param colour - colour to be given to the calling figure.
 	 */
 	public void setColour(Color colour) {
 		this.colour = colour;
