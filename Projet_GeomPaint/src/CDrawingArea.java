@@ -24,12 +24,12 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 			
 			if(this.model.getFigureList().size() != 0){
 				//modifier la figure
-				if(this.model.getFigureList.get(index).isSelected() && this.getClosestPoint(p).isNearTo(p)){
+				if(this.model.getFigureList().get(index).isSelected() && this.getClosestPoint(p).isNearTo(p)){
 					this.getClosestPoint(p).translate(x, y);
 				}
 				
 				//deplacer la figure
-				if(model.getFigureList().get(index).isSelected()/* && souris dans la figure*/){
+				if(this.model.getFigureList().get(index).isSelected() && this.model.getFigureList().getSelected().isInside()){
 					
 				}
 			

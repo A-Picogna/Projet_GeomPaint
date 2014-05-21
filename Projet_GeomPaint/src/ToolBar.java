@@ -53,7 +53,21 @@ public class ToolBar extends JToolBar implements ActionListener {
 		}
 		if ((JButton)e.getSource() == polygon) {
 			model.setMode('p');
-			chooseNumber();
+			String s = JOptionPane.showInputDialog(
+                this.getRootPane(),
+                "Choisissez le nombre d'angles \n"+"de votre polygone:\n",
+                "Choix de n",
+                JOptionPane.PLAIN_MESSAGE);
+			try {
+				int n = Integer.parseInt(s);
+				if (n<3)
+					showWarning("Le nombre d'angles doit etre superieur a 2");
+				else
+					return;
+			}
+			catch (NumberFormatException nfe) {
+				showWarning("Le nombre d'angles du polygone doit etre un entier");
+			}
 		}
 		if ((JButton)e.getSource() == fill) {
 			
@@ -66,28 +80,9 @@ public class ToolBar extends JToolBar implements ActionListener {
 		}
 
     }
-	public int chooseNumber() {
-		JOptionPane jop = new JOptionPane();
-		String s = (String)JOptionPane.showInputDialog(
-		                    this.getRootPane(),
-		                    "Choisissez le nombre d'angles \n"+"de votre polygone:\n",
-		                    "Customized Dialog",
-		                    JOptionPane.PLAIN_MESSAGE);
-
-		try {
-			int n = Integer.parseInt(s);
-			if (n<3)
-				showWarning(jop, "Le nombre d'angles doit etre superieur a 2");
-			else
-				return n;
-		}
-		catch (NumberFormatException nfe) {
-			showWarning(jop, "Le nombre d'angles du polygone doit etre un entier");
-		}
-	}
 	
-	public void showWarning(JOptionPane jop, String s) {
-		JOptionPane.showMessageDialog(jop, s,
+	public void showWarning(String s) {
+		JOptionPane.showMessageDialog(this.getRootPane(),s,
 		    "Erreur",
 		    JOptionPane.ERROR_MESSAGE);
 	}
