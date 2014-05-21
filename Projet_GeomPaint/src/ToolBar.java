@@ -11,13 +11,12 @@ public class ToolBar extends JToolBar implements ActionListener {
 	final JButton circle = new JButton("Cercle");
 	final JButton  rectangle = new JButton("Rectangle");
     final JButton triangle = new JButton("Triangle");
-    final JTextField angles = new JTextField();
-    final JButton polygon = new JButton("Saisir polygone");
-	final JToggleButton fill = new JToggleButton("Remplir/Evider");
+    final JButton polygon = new JButton("Polygone");
+	final JButton fill = new JButton("Remplir/Evider");
 	final JButton duplicate=new JButton("Dupliquer");
 	final JButton erase=new JButton("Effacer");
-    final String[] colorStrings = { "Noir", "Rouge", "Bleu", "Jaune", "Vert", "Orange", "Rose"};
-    final JComboBox colorList = new JComboBox(colorStrings);
+    final String[] colorstrings = { "Noir", "Rouge", "Bleu", "Jaune", "Vert", "Orange", "Rose"};
+    final JComboBox colorlist = new JComboBox(colorstrings);
 	
 	public ToolBar(LinkedList<Model> shl) {
 		super("Outils");
@@ -25,13 +24,12 @@ public class ToolBar extends JToolBar implements ActionListener {
         this.add(circle);
         this.add(rectangle);
         this.add(triangle);
-	    this.add(angles);   
         this.add(polygon);
         this.add(fill);
  	    this.add(duplicate);   
         this.add(erase);
-        colorList.setSelectedIndex(0);
-		this.add(colorList);
+        colorlist.setSelectedIndex(0);
+		this.add(colorlist);
 		
 		circle.addActionListener(this);
 		rectangle.addActionListener(this);
@@ -40,7 +38,7 @@ public class ToolBar extends JToolBar implements ActionListener {
 		fill.addActionListener(this);
 		duplicate.addActionListener(this);
 		erase.addActionListener(this);
-		colorList.addActionListener(this);
+		colorlist.addActionListener(this);
 	}
     public void actionPerformed(ActionEvent e) {
 
