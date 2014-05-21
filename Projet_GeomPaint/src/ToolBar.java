@@ -9,10 +9,10 @@ import java.util.LinkedList;
 public class ToolBar extends JToolBar implements ActionListener {
 	private Model model;
 	final JButton circle = new JButton("Cercle");
-	final JButton  rectangle = new JButton("Rectangle");
+	final JButton rectangle = new JButton("Rectangle");
     final JButton triangle = new JButton("Triangle");
     final JButton polygon = new JButton("Polygone");
-    final JOptionPane angles = new JOptionPane("Choisissez le nombre d'angles de votre polygone", JOptionPane.QUESTION_MESSAGE, JOptionPane.OK_CANCEL_OPTION,);
+    final JOptionPane angles = new JOptionPane("Choisissez le nombre d'angles de votre polygone", JOptionPane.QUESTION_MESSAGE, JOptionPane.OK_CANCEL_OPTION);
 	final JButton fill = new JButton("Remplir/Evider");
 	final JButton duplicate=new JButton("Dupliquer");
 	final JButton erase=new JButton("Effacer");
@@ -53,7 +53,7 @@ public class ToolBar extends JToolBar implements ActionListener {
 		}
 		if ((JButton)e.getSource() == polygon) {
 			model.setMode('p');
-	
+			chooseNumber();
 		}
 		if ((JButton)e.getSource() == fill) {
 			
@@ -66,22 +66,30 @@ public class ToolBar extends JToolBar implements ActionListener {
 		}
 
     }
-	public void chooseNumber() {
-		int n = (int)JOptionPane.showInputDialog(
-		                    frame,
+	public int chooseNumber() {
+		JOptionPane jop = new JOptionPane();
+		String s = (String)JOptionPane.showInputDialog(
+		                    this.getRootPane(),
 		                    "Choisissez le nombre d'angles \n"+"de votre polygone:\n",
 		                    "Customized Dialog",
 		                    JOptionPane.PLAIN_MESSAGE);
 
-		//If a string was returned, say so.
-		if (n < 3) {
-		    setLabel("Le nombre d'angles doit etre superieur a 2");
-		else
-		    return;
+		try {
+			int n = Integer.parseInt(s);
+			if (n<3)
+				showWarning(jop, "Le nombre d'angles doit etre superieur a 2");
+			else
+				return n;
 		}
-
-		//If you're here, the return value was null/empty.
-		setLabel("Come on, finish the sentence!");
+		catch (NumberFormatException nfe) {
+			showWarning(jop, "Le nombre d'angles du polygone doit etre un entier");
+		}
+	}
+	
+	public void showWarning(JOptionPane jop, String s) {
+		JOptionPane.showMessageDialog(jop, s,
+		    "Erreur",
+		    JOptionPane.ERROR_MESSAGE);
 	}
 }
 
