@@ -4,18 +4,27 @@
  * @author VILAS
  */
 public class Point {
+
+
+////////////////////
+//   ATTRIBUTES   //
+////////////////////
 	/**
 	 * Attributes x and y corresponding respectively to
 	 * the abscissa and the ordinate of the Point.
 	 */
 	private int x,y;
 	
+////////////////////
+//    METHODS     //
+////////////////////
+	
 	/**
 	 * Constructor of the class Point 
 	 * admitting two integers as arguments, 
 	 * corresponding to the following:
-	 * @param abs - abscissa value to be given to the created Point.
-	 * @param ord - ordinate value to be given to the created Point.
+	 * @param abs - value to be given to the abscissa of the created Point.
+	 * @param ord - value to be given to the ordinate of the created Point.
 	 */
 	public Point(int abs, int ord)
 	{
@@ -25,6 +34,48 @@ public class Point {
 			this.y = ord;
 		}
 	}
+
+
+
+///////////////////////
+// GETTERS & SETTERS //
+///////////////////////
 	
+	/**
+	 * Method getX()
+	 * @return - abscissa value of the calling Point.
+	 */
+	public int getX() 
+	{
+		return x;
+	}
 	
+	/**
+	 * Method setX()
+	 * @param x - value to be given to the abscissa of the calling Point.
+	 */
+	public void setX(int x) 
+	{
+		this.x = x;
+	}
+	
+	/**
+	 * Method getY()
+	 * @return - ordinate value of the calling Point.
+	 */
+	public int getY() 
+	{
+		return y;
+	}
+	
+	/**
+	 * Method setY()
+	 * @param y - value to be given to the ordinate of the calling Point.
+	 */
+	public void setY(int y) 
+	{
+		this.y = y;
+	}
+	
+
 }
