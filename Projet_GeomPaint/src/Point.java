@@ -15,6 +15,18 @@ public class Point {
 	 */
 	private int x,y;
 	
+	/**
+	 * Method translate()
+	 * Method that moves a Point as per the data given as argument.
+	 * @param dx - variation abscissa-wise.
+	 * @param dy - variation ordinate-wise.
+	 */
+	public void translate(int dx, int dy)
+	{
+		this.x = this.x + dx;
+		this.y = this.y + dy;
+	}
+	
 ////////////////////
 //    METHODS     //
 ////////////////////
