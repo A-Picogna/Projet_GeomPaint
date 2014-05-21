@@ -54,7 +54,7 @@ public class VDrawingArea extends JPanel{
 		if(index>=1)
 			index--;
 		if(index>=0 && this.figureList.size()!=0)
-			this.figureList.get(index).select();
+			this.figureList.get(index).Select();
 		if(this.figureList.size()==0)
 			this.index=-1;				
 	}
@@ -73,5 +73,7 @@ public class VDrawingArea extends JPanel{
     	for(int i = 0; i< this.figureList.size() ; i++)
     		this.figureList.get(i).display(g);
     }
+	
+	
 
 }
