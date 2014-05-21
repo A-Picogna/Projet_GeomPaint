@@ -46,6 +46,19 @@ public class Point {
 			this.y = ord;
 		}
 	}
+	
+	/**
+	 * Method isNearTo()
+	 * returns true if the point given as parameter is in a 10px area
+	 * around the calling point.
+	 * @param p - point to evaluate the proximity of.
+	 * @return true if the point given as parameter is in a 10px area around the calling point, false otherwise.
+	 */
+	public boolean isNearTo(Point p)
+	{
+		return (p.getX() < this.getX()+5 && p.getX() > this.getX()-5
+			&& p.getY() < this.getY()+5 && p.getY() > this.getY()-5);
+	}
 
 ///////////////////////
 // GETTERS & SETTERS //
