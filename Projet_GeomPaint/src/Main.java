@@ -1,18 +1,17 @@
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
+import java.awt.*;
+import javax.swing.*;
 
 
 public class Main {
 	public static void main(String[] args) {
-		JFrame fenetre = new JFrame("Eteins la lumiere");
-		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		JFrame frame = new JFrame("GeomPaint");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Organiser paintSoftware = new Organiser();
 		paintSoftware.setPreferredSize(new Dimension(600,600));
-		fenetre.setContentPane(paintSoftware);
-		fenetre.pack();
-		fenetre.setVisible(true);
-		fenetre.setResizable(false);
+		frame.setContentPane(paintSoftware);
+		frame.pack();
+		frame.setVisible(true);
+		frame.setResizable(false);
 		paintSoftware.setFocusable(true);		  
 	}
 }
