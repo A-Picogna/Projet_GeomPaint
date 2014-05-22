@@ -13,7 +13,11 @@ public class Model extends Observable{
 	
 	/**
 	 * Attribute corresponding to the mode the user is in.
-	 * 
+	 * 'c' - Creation of a Circle 
+	 * 'r' - Creation of a Rectangle
+	 * 't' - Creation of a Triangle
+	 * 'p' - Creation of a Polygon
+	 * 'n' - Neutral - by default
 	 */
 	private char mode;
 	
@@ -25,7 +29,8 @@ public class Model extends Observable{
 	 * initiates a new LinkedList.
 	 */
 	public Model() {
-    	figureList = new LinkedList<GeomShape>();   	
+    	this.figureList = new LinkedList<GeomShape>();
+    	this.mode = 'n';
     }
 	
 	// METHODS
