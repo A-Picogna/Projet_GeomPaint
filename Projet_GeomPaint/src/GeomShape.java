@@ -5,7 +5,7 @@ import java.awt.Color;
  * @author VILAS
  *
  */
-public class GeomShape {
+public abstract class GeomShape {
 
 ////////////////////
 //   ATTRIBUTES   //
@@ -43,8 +43,14 @@ public class GeomShape {
 //    METHODS     //
 ////////////////////
 
-	
-	
+
+	public void translate(int dx, int dy)
+	{
+		for(int i =0; i < this.numberPoints; i++)
+		{
+			
+		}
+	}
 
 ///////////////////////
 //GETTERS & SETTERS //
