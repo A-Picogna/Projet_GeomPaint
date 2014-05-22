@@ -77,12 +77,16 @@ public class VDrawingArea extends JPanel implements Observer {
     		}
     		if (figure instanceof Circle){
     			int radius = figure.getPointsTab()[0].distance(figure.getPointsTab()[1]);
+    			int d = radius*2;
+    			// Si ! le nom de cette variagle est drole !
+    			int coin_x = figure.getPointsTab()[0].getX()-radius;
+    			int coin_y = figure.getPointsTab()[0].getY()-radius;
     			g.setColor(figure.getColour());
     			//check is we need to fill the figure or not
     			if (figure.isFilled())
-    				g.drawOval(figure.getPointsTab()[0].getX(), figure.getPointsTab()[0].getY(), radius, radius);
+    				g.drawOval(coin_x, coin_y, d, d);
     			else
-    				g.fillOval(figure.getPointsTab()[0].getX(), figure.getPointsTab()[0].getY(), radius, radius);
+    				g.fillOval(coin_x, coin_y, d, d);
     		}
     	}
 	}
