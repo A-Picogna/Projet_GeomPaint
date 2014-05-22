@@ -1,8 +1,9 @@
 import java.awt.Color;
 import java.util.LinkedList;
+import java.util.Observable;
 
 
-public class Model {
+public class Model extends Observable{
 	
 	// ATTRIBUTE
 	/**
@@ -10,7 +11,13 @@ public class Model {
 	 */
 	private LinkedList<GeomShape> figureList;
 	
+	/**
+	 * Attribute corresponding to the .
+	 */
+	private char mode;
+	
 	// CONSTRUCTOR
+	
 	
 	/**
 	 * No-Arg constructor of the class Model
@@ -68,20 +75,26 @@ public class Model {
 	public void setfigureList(LinkedList<GeomShape> figureList) {
 		this.figureList = figureList;
 	}
-	
-	/**
-	 * Method getSelected
-	 * Return the figure selected
-	 * @return sel 
-	 */
-	public GeomShape getSelected(){
-		GeomShape sel = null;
-		for (int i=0; i<this.getFigureList().size()-1; i++){
-			if(this.getFigureList().get(i).isSelected())
-				sel = this.getFigureList().get(i);
-		}
-		return sel;
-		
+
+	// Getter and Setter 
+	public boolean isDrawing() {
+		return modeDrawing;
+	}
+
+	public void setDrawing(boolean modeDrawing) {
+		this.modeDrawing = modeDrawing;
+	}
+
+	public boolean isHandling() {
+		return modeHandling;
+	}
+
+	public void setHandling(boolean modeHandling) {
+		this.modeHandling = modeHandling;
+	}
+
+	public void setFigureList(LinkedList<GeomShape> figureList) {
+		this.figureList = figureList;
 	}
 
 }
