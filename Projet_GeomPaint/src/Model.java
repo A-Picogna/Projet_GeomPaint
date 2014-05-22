@@ -1,8 +1,9 @@
 import java.awt.Color;
 import java.util.LinkedList;
+import java.util.Observable;
 
 
-public class Model {
+public class Model extends Observable{
 	
 	// ATTRIBUTE
 	/**
