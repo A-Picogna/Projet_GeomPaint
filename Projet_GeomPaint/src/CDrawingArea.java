@@ -66,8 +66,11 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 			for (int i =0; i<this.model.getFigureList().size()-1; i++){
 				//si la figure sur laquel on clic n'est pas selectionée on change son état
 				if(this.model.getFigureList().get(i).contains(p) && !this.model.getFigureList().get(i).isSelected()){
-					this.model.getSelected.unselect();
+					this.model.getSelected().unselect();
 					this.model.getFigureList().get(i).select();
+				}
+				if(!this.model.getFigureList().get(i).contains(p) && this.model.getFigureList().get(i).isSelected()){
+					this.model.getFigureList().get(i).unselect();
 				}
 			}
 		}
