@@ -28,6 +28,12 @@ public class GeomShape {
 	private boolean selected;
 	
 	/**
+	* Attribute set to True if the figure is filled,
+	* and to false if it is empty.
+	*/
+	private boolean filled;
+	
+	/**
 	 * Number of points of the figure.
 	 */
 	private int numberPoints;
@@ -99,6 +105,23 @@ public class GeomShape {
 	public int getNumberPoints()
 	{
 		return this.numberPoints;
+	}
+	
+	/**
+	 * Method setFilled(boolean)
+	 * Sets the filled attribute of the calling figure as per the value given as parameter.
+	 * @param fill - value to be given to the calling figure's attribute filled.
+	 */
+	public void setFilled(boolean fill){
+		this.filled = fill;
+	}
+	
+	/**
+	 * Method isFilled()
+	 * @return true if the calling figure is filled or false if it is empty.
+	 */
+	public boolean isFilled(){
+		return this.filled;
 	}
 	
 	/**
