@@ -44,13 +44,9 @@ public abstract class GeomShape {
 ////////////////////
 
 
-	public void translate(int dx, int dy)
-	{
-		for(int i =0; i < this.numberPoints; i++)
-		{
-			
-		}
-	}
+	public abstract boolean contains(Point test);
+	public abstract void translate(int dx, int dy);
+
 
 ///////////////////////
 //GETTERS & SETTERS //
