@@ -97,6 +97,19 @@ public class Model extends Observable{
 	public void setFigureList(LinkedList<GeomShape> figureList) {
 		this.figureList = figureList;
 	}
-
-
+	
+	/**
+	 * Method getSelected
+	 * Return the figure selected
+	 * @return sel 
+	 */
+	public GeomShape getSelected(){
+		GeomShape sel = null;
+		for (int i=0; i<this.getFigureList().size()-1; i++){
+			if(this.getFigureList().get(i).isSelected())
+				sel = this.getFigureList().get(i);
+		}
+		return sel;
+		
+	}
 }
