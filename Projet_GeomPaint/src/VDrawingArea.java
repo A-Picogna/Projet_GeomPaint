@@ -8,11 +8,14 @@ import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.Observable;
+import java.util.Observer;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 
+@SuppressWarnings("serial")
 public class VDrawingArea extends JPanel implements Observer {
 
 	
@@ -40,14 +43,15 @@ public class VDrawingArea extends JPanel implements Observer {
 	public void displayAll(Graphics g){
 		GeomShape figure;
     	int nbPoints;
-    	for(int i = 0 ; i < this.model.getfigureList().size() ; i++){
+    	for(int i = 0 ; i < this.model.getFigureList().size() ; i++){
     		figure = this.model.getFigureList().get(i);
     		nbPoints = figure.getNumberPoints();
     		for (int j = 0 ; j < nbPoints-1 ; j++){
-    			g.drawLine(figure.getPointsTab[j].getX(), figure.getPointsTab[j].getY(), figure.getPointsTab[j+1].getX(), figure.getPointsTab[j+1].getY());
+    			g.drawLine(figure.getPointsTab()[j].getX(), figure.getPointsTab()[j].getY(), figure.getPointsTab()[j+1].getX(), figure.getPointsTab()[j+1].getY());
     		}
-    		g.drawLine(figure.getPointsTab[nbPoints-1].getX(), figure.getPointsTab[nbPoints-1].getY(), figure.getPointsTab[0].getX(), figure.getPointsTab[0].getY());
+    		g.drawLine(figure.getPointsTab()[nbPoints-1].getX(), figure.getPointsTab()[nbPoints-1].getY(), figure.getPointsTab()[0].getX(), figure.getPointsTab()[0].getY());
     	}
 	}
+}
 
 	
