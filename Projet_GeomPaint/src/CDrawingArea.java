@@ -73,6 +73,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 					this.model.getSelected().unselect();
 					this.model.getFigureList().get(i).select();
 				}
+				//si on clic en dehors de la figure selectionée on deselctionne la figure qui etait selectionée 
 				if(!this.model.getFigureList().get(i).contains(p) && this.model.getFigureList().get(i).isSelected()){
 					this.model.getFigureList().get(i).unselect();
 				}
@@ -110,7 +111,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 	 * @return closest point plus proche a la souris
 	 */
 	public Point getClosestPoint(Point p){
-		Point closest;
+		Point closest = null;
 		int res = 0;
 		for(int i =0; i<this.model.getSelected().getNumberPoints(); i++){
 			if(this.model.getSelected().getPointsTab()[i].distance(p)<res)

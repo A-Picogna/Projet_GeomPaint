@@ -75,27 +75,6 @@ public class Model extends Observable{
 	public void setfigureList(LinkedList<GeomShape> figureList) {
 		this.figureList = figureList;
 	}
-
-	// Getter and Setter 
-	public boolean isDrawing() {
-		return modeDrawing;
-	}
-
-	public void setDrawing(boolean modeDrawing) {
-		this.modeDrawing = modeDrawing;
-	}
-
-	public boolean isHandling() {
-		return modeHandling;
-	}
-
-	public void setHandling(boolean modeHandling) {
-		this.modeHandling = modeHandling;
-	}
-
-	public void setFigureList(LinkedList<GeomShape> figureList) {
-		this.figureList = figureList;
-	}
 	
 	/**
 	 * Method getSelected
