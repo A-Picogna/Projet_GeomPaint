@@ -65,8 +65,8 @@ public class ToolBar extends JToolBar implements ActionListener {
 				else {
 					return;
 					model.setMode('p');
-					Polygone p = new Polygone(3);
-					model.add(p);
+/*					Polygone p = new Polygone(3);
+					model.addShape(p);*/
 				}
 			}
 			catch (NumberFormatException nfe) {
@@ -76,30 +76,30 @@ public class ToolBar extends JToolBar implements ActionListener {
 			}
 		}
 		if ((JButton)e.getSource() == fill) {
-			int i = model.findActive();
+			int i = model.getSelected();
 			if (i >= 0)
 				GeomShape g = model.getShape(i);
-				if (g.isPlain())
-					g.setPlain(false);
+				if (g.isFilled())
+					g.setFilled(false);
 				else
-					g.setPlain(true);
+					g.setFilled(true);
 		}
 		if ((JButton)e.getSource() == duplicate) {
-			int i = model.findActive();
+			int i = model.getSelected();
 			if (i >= 0) {
 				GeomShape g1 = model.getShape(i);
 				GeomShape g2 = new GeomShape(g1);
 				g2.translate(10,10);
-				model.addFigure(g2);
+				model.addShape(g2);
 			}
 		}
 		if ((JButton)e.getSource() == erase) {
-			int i = model.findActive();
+			int i = model.getSelected();
 			if (i >= 0)
 				model.delShape(i);
 		}
 		if ((JComboBox)e.getSource() == colorlist) {
-			int i = model.findActive();
+			int i = model.getSelected();
 			if (i >= 0) {
 				GeomShape g = model.getShape(i);
 				String s = (String)colorlist.getSelectedItem();
