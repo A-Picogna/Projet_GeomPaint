@@ -63,6 +63,14 @@ public abstract class GeomShape {
 	public Point[] getPointsTab() {
 		return pointsTab;
 	}
+	
+	/**
+	 * Method setPointsTab(Point[])
+	 * @param pointsTab - array of points to be given to the calling object.
+	 */
+	public void setPointsTab(Point[] pointsTab) {
+		this.pointsTab = pointsTab;
+	}
 
 	/**
 	 * Method getColour()
