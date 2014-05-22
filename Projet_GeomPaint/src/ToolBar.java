@@ -89,21 +89,22 @@ public class ToolBar extends JToolBar implements ActionListener {
 		if ((JButton)e.getSource() == duplicate) {
 			GeomShape g = model.getSelected();
 			if (g != null) {
-				char t = g.getType();
-				switch (t) {
-					case 'c':
+				if (g instanceof Circle) {
 						Circle c = new Circle(g);
 						model.addShape(c);
 						c.translate(10,10);
-					case 'r':
+				}
+				if (g instanceof Rectangle) {
 						Rectangle r = new Rectangle(g);
 						model.addShape(r);
 						r.translate(10,10);
-					case 't':
-						Triangle t = new Circle(g);
+				}
+				if (g instanceof Triangle) {
+						Triangle t = new Triangle(g);
 						model.addShape(t);
 						t.translate(10,10);
-					case 'p':
+				}
+				if (g instanceof Polygon) {
 						Polygon p = new Polygon(g);
 						model.addShape(p);
 						p.translate(10,10);
