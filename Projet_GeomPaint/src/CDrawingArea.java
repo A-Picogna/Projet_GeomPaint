@@ -10,8 +10,9 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 	
 	//ATTRIBUTES
 	private Model model;
-	private int x, lastx, y, lasty, point;
+	private int x,  y, point;
 	private Point p;
+	
 
 	
 	public void mouseDragged(MouseEvent e) {
@@ -22,11 +23,14 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 			
 			if(this.model.getFigureList().size() != 0){
 				//modifier la figure
+
 				if( this.getClosestPoint(p).isNearTo(p)){
+
 					this.getClosestPoint(p).translate(x, y);
 				}
 				
 				//deplacer la figure
+
 				if(this.model.getSelected().contains(p)){
 					GeomShape figure;
 					int nbPoints;
@@ -36,9 +40,9 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 			    			figure.getPointsTab()[j].translate(x, y);
 			    		}
 				
+
 				}
-			lastx = e.getX();
-			lasty = e.getY();
+			
 			}
 		}
 	}
@@ -51,6 +55,13 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		//recuperation points dessin de figure
+		
+		
+		
+		
+		
+		//selection de figure
 		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureList().size() > 0 ){
 			x = e.getX();
 			y = e.getY();
@@ -59,7 +70,11 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 			for (int i =0; i<this.model.getFigureList().size()-1; i++){
 				//si la figure sur laquel on clic n'est pas selectionée on change son état
 				if(this.model.getFigureList().get(i).contains(p) && !this.model.getFigureList().get(i).isSelected()){
+					this.model.getSelected().unselect();
 					this.model.getFigureList().get(i).select();
+				}
+				if(!this.model.getFigureList().get(i).contains(p) && this.model.getFigureList().get(i).isSelected()){
+					this.model.getFigureList().get(i).unselect();
 				}
 			}
 		}
