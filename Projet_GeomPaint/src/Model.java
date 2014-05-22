@@ -12,7 +12,8 @@ public class Model extends Observable{
 	private LinkedList<GeomShape> figureList;
 	
 	/**
-	 * Attribute corresponding to the .
+	 * Attribute corresponding to the mode the user is in.
+	 * 
 	 */
 	private char mode;
 	
