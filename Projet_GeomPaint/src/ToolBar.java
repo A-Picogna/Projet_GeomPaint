@@ -41,6 +41,7 @@ public class ToolBar extends JToolBar implements ActionListener {
  	    this.add(duplicate);
         erase.setPreferredSize(new Dimension(50,50));
         this.add(erase);
+        colorlist.setPreferredSize(new Dimension(80,40));
         colorlist.setSelectedIndex(0);
 		this.add(colorlist);
 		
