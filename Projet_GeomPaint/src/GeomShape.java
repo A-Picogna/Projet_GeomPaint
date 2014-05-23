@@ -142,28 +142,4 @@ public abstract class GeomShape {
 		this.numberPoints = numberPoints;
 	}
 	
-	/**
-	 * Methode contains(Point)
-	 * @param p point 
-	 * @return true if the point given is inside the figure, false otherwise
-	 */
-	public boolean contains(Point p){
-		boolean inside = false;
-		if(this instanceof Rectangle){
-			
-		}
-		
-		if(this instanceof Triangle){
-			
-		}
-		
-		if(this instanceof Circle){
-			
-		}
-		
-		if(this instanceof Polygon){
-			
-		}
-		return inside;
-	}
 }
