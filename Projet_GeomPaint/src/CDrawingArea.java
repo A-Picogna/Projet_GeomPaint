@@ -12,7 +12,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 	private Model model;
 	private int x,  y, point;
 	private Point p;
-	
+	private LinkedList<Point> data;
 
 	
 	public void mouseDragged(MouseEvent e) {
@@ -55,33 +55,32 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 		x = e.getX();
 		y = e.getY();
 		p = new Point(x, y);
-		Point[] tabPoint;
+		
 		//recuperation points dessin de figure
 		if(SwingUtilities.isLeftMouseButton(e) && (model.getMode()!='n')){
 														
-			
-			int nbPointsRequired;
-			if(this.model.getMode()=='r'){
-				nbPointsRequired = 2;
-				tabPoint = new Point[2];
-			}
-			if(this.model.getMode()=='t'){
-				nbPointsRequired = 3;
-				tabPoint = new Point[3];
-			}
-			if(this.model.getMode()=='p'){
-				int n = model.getCounter();
-				nbPointsRequired = n;
-				tabPoint = new Point[n];
-			}
-			if(this.model.getMode()=='c'){
-				nbPointsRequired = 2;
-				tabPoint = new Point[2];
-			}
-			for(int i = 0; i<nbPointsRequired; i++){
-				tabPoint[i] = p;
-				
-				
+			int nbPoints = model.getNbPointsRequired();
+			if(nbPoints > 0){
+				data.add(p);
+				model.setNbPointsRequired(nbPoints -1);
+				if(model.getNbPointsRequired()==0){
+					
+					switch(model.getMode()){
+					case 'r':
+						model.getFigureList().add(new Rectangle(data));
+						break;
+					case 't':
+						model.getFigureList().add(new Triangle (data));
+						break;
+					case 'c':
+						model.getFigureList().add(new Circle (data));
+						break;
+					/*case 'p':
+					  model.getFigureList().add(new Polygon(data);
+					  */
+					}
+				}
+					
 			}
 			this.model.setMode('n');
 		}
