@@ -16,6 +16,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 
 	
 	public void mouseDragged(MouseEvent e) {
+		
 		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureList().size() > 0 ){
 			x = e.getX();
 			y = e.getY();
@@ -70,10 +71,10 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 						model.getFigureList().add(new Rectangle(data));
 						break;
 					case 't':
-						model.getFigureList().add(new Triangle (data));
+						model.getFigureList().add(new Triangle(data));
 						break;
 					case 'c':
-						model.getFigureList().add(new Circle (data));
+						model.getFigureList().add(new Circle(data));
 						break;
 					/*case 'p':
 					  model.getFigureList().add(new Polygon(data);
@@ -82,6 +83,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 				}
 					
 			}
+			
 			this.model.setMode('n');
 		}
 		
