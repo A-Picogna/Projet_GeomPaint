@@ -1,28 +1,41 @@
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.event.*;
-import java.util.LinkedList;
 
 
 public class ToolBar extends JToolBar implements ActionListener {
 	private Model model;
-	final ImageIcon circleIcon = createImageIcon("icons/circle.gif");
-	final JButton circle = new JButton(circleIcon);
-	final ImageIcon rectangleIcon = createImageIcon("icons/rectangle.gif");
-	final JButton rectangle = new JButton(rectangleIcon);
-	final ImageIcon triangleIcon = createImageIcon("icons/triangle.gif");
-    final JButton triangle = new JButton(triangleIcon);
-	final ImageIcon polygonIcon = createImageIcon("icons/polygon.gif");
-    final JButton polygon = new JButton(polygonIcon);
-	final ImageIcon fillIcon = createImageIcon("icons/fill.gif"); 
-	final JButton fill = new JButton(fillIcon);
-	final ImageIcon duplicateIcon = createImageIcon("icons/duplicate.gif");
-	final JButton duplicate=new JButton(duplicateIcon);
-	final ImageIcon eraseIcon = createImageIcon("icons/erase.gif");
-	final JButton erase=new JButton(eraseIcon);
-    final String[] colorstrings = { "Noir", "Rouge", "Bleu", "Jaune", "Vert", "Orange", "Rose"};
-    final JComboBox colorlist = new JComboBox(colorstrings);
+	// Elements constituting the Circle Button
+	private final ImageIcon circleIcon = createImageIcon("icons/circle.gif");
+	private final JButton circle = new JButton(circleIcon);
+	
+	// Elements constituting the Rectangle Button
+	private final ImageIcon rectangleIcon = createImageIcon("icons/rectangle.gif");
+	private final JButton rectangle = new JButton(rectangleIcon);
+	
+	// Elements constituting the Triangle Button
+	private final ImageIcon triangleIcon = createImageIcon("icons/triangle.gif");
+	private final JButton triangle = new JButton(triangleIcon);
+	
+    // Elements constituting the Polygon Button
+	private final ImageIcon polygonIcon = createImageIcon("icons/polygon.gif");
+	private final JButton polygon = new JButton(polygonIcon);
+    
+    // Elements constituting the filling Button
+	private final ImageIcon fillIcon = createImageIcon("icons/fill.gif"); 
+	private final JButton fill = new JButton(fillIcon);
+	
+	// Elements constituting the Duplication Button
+	private final ImageIcon duplicateIcon = createImageIcon("icons/duplicate.gif");
+	private final JButton duplicate=new JButton(duplicateIcon);
+	
+	// Elements constituting the Eraser Button
+	private final ImageIcon eraseIcon = createImageIcon("icons/erase.gif");
+	private final JButton erase=new JButton(eraseIcon);
+	
+	// Elements constituting the Colour selecter Button
+	private final String[] colorstrings = { "Noir", "Rouge", "Bleu", "Jaune", "Vert", "Orange", "Rose"};
+	private final JComboBox colorlist = new JComboBox(colorstrings);
 	
 	public ToolBar (Model m) {
 		super("Outils");
