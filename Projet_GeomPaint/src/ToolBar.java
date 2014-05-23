@@ -50,14 +50,17 @@ public class ToolBar extends JToolBar implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 		if ((JButton)e.getSource() == circle) {
 			model.setMode('c');
+			Model.setNbPointsRequired(2);
 		}
 		if ((JButton)e.getSource() == rectangle) {
 			model.setMode('r');
+			Model.setNbPointsRequired(2);
 		}
 		if ((JButton)e.getSource() == triangle) {
 			model.setMode('t');
+			Model.setNbPointsRequired(3);
 		}
-		if ((JButton)e.getSource() == polygon) {
+/*		if ((JButton)e.getSource() == polygon) {
 
 			String s = JOptionPane.showInputDialog(
                 this.getRootPane(),
@@ -73,7 +76,7 @@ public class ToolBar extends JToolBar implements ActionListener {
 								"doit etre superieur a 2\n");
 				else {
 					model.setMode('p');
-/*					model.setCounter(n);*/
+					Model.setNbPointsRequired(n);
 					return;
 				}
 			}
@@ -82,8 +85,7 @@ public class ToolBar extends JToolBar implements ActionListener {
 							"du polygone\n"+
 							"doit etre un entier\n");
 			}
-
-		}
+		}*/
 		if ((JButton)e.getSource() == fill) {
 			GeomShape g = model.getSelected();
 			if (g != null) {
