@@ -16,6 +16,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 
 	
 	public void mouseDragged(MouseEvent e) {
+		
 		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureList().size() > 0 ){
 			x = e.getX();
 			y = e.getY();
@@ -64,10 +65,10 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 						model.getFigureList().add(new Rectangle(data));
 						break;
 					case 't':
-						model.getFigureList().add(new Triangle (data));
+						model.getFigureList().add(new Triangle(data));
 						break;
 					case 'c':
-						model.getFigureList().add(new Circle (data));
+						model.getFigureList().add(new Circle(data));
 						break;
 					/*case 'p':
 					  model.getFigureList().add(new Polygon(data);
@@ -76,6 +77,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 				}
 					
 			}
+			
 			this.model.setMode('n');
 		}
 		
@@ -123,9 +125,10 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 		
 	}
 	/**
-	 * Methode qui renvoie le point plus proche a la souris
-	 * @param p point qui represente la position de la souris
-	 * @return closest point plus proche a la souris
+	 * Method getClosestPoint
+	 * It returns the closest figure point to the mouse  
+	 * @param p point which represents the position of the mouse
+	 * @return closest, point closest to the mouse 
 	 */
 	public Point getClosestPoint(Point p){
 		Point closest = null;
