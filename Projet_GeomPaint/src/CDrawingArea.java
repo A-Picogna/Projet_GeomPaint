@@ -10,7 +10,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 	
 	//ATTRIBUTES
 	private Model model;
-	private int x,  y, point;
+	private int x, y, last_x, last_y, point;
 	private Point p;
 	private LinkedList<Point> data;
 
@@ -25,15 +25,17 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 				//modifier la figure
 
 				if(this.getClosestPoint(p).isNearTo(p)){
-					this.getClosestPoint(p).translate(x, y);
+					this.getClosestPoint(p).setX(x);
+					this.getClosestPoint(p).setY(y);
 				}
 				
 				//deplacer la figure
 
 				if(this.model.getSelected().contains(p)){
-					GeomShape figure;
-					figure = this.model.getSelected();
-			    	figure.translate(x, y);
+					GeomShape figure = this.model.getSelected();
+			    	figure.translate(x - last_x,y - last_y);
+			    	last_x = x;
+			    	last_y = y;
 				}
 
 		}
@@ -124,6 +126,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 		// TODO Auto-generated method stub
 		
 	}
+	
 	/**
 	 * Method getClosestPoint
 	 * It returns the closest figure point to the mouse  
@@ -138,8 +141,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 				closest = this.model.getSelected().getPointsTab()[i];
 		}
 		
-		return closest;
-		
+		return closest;	
 	}
 
 }
