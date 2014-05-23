@@ -16,10 +16,9 @@ public class Circle extends GeomShape{
 	public Circle (Point[]data)
 	{
 		super();
-		if (data.length == 2){
-			this.setNumberPoints(2);
-			this.setPointsTab(data);			
-		}
+		this.setNumberPoints(data.length);
+		this.setPointsTab(data);			
+
 	}
 	
 	/**

@@ -15,9 +15,12 @@ public class ToolBar extends JToolBar implements ActionListener {
     final JButton triangle = new JButton(triangleIcon);
 	final ImageIcon polygonIcon = new ImageIcon("icons/polygon.gif");
     final JButton polygon = new JButton(polygonIcon);
-	final JButton fill = new JButton("R/E");
-	final JButton duplicate=new JButton("Dup");
-	final JButton erase=new JButton("Eff");
+	final ImageIcon fillIcon = new ImageIcon("icons/fill.gif"); 
+	final JButton fill = new JButton(fillIcon);
+	final ImageIcon duplicateIcon = new ImageIcon("icons/duplicate.gif");
+	final JButton duplicate=new JButton(duplicateIcon);
+	final ImageIcon eraseIcon = new ImageIcon("icons/erase.gif");
+	final JButton erase=new JButton(eraseIcon);
     final String[] colorstrings = { "Noir", "Rouge", "Bleu", "Jaune", "Vert", "Orange", "Rose"};
     final JComboBox colorlist = new JComboBox(colorstrings);
 	
@@ -75,10 +78,9 @@ public class ToolBar extends JToolBar implements ActionListener {
 								"du polygone\n"+
 								"doit etre superieur a 2\n");
 				else {
-					return;
 					model.setMode('p');
-/*					Polygone p = new Polygone(3);
-					model.addShape(p);*/
+/*					model.setCounter(n);*/
+					return;
 				}
 			}
 			catch (NumberFormatException nfe) {
@@ -101,22 +103,22 @@ public class ToolBar extends JToolBar implements ActionListener {
 			GeomShape g = model.getSelected();
 			if (g != null) {
 				if (g instanceof Circle) {
-						Circle c = new Circle(g);
+						Circle c = new Circle((Circle)g);
 						model.addFigure(c);
 						c.translate(10,10);
 				}
 				if (g instanceof Rectangle) {
-						Rectangle r = new Rectangle(g);
+						Rectangle r = new Rectangle((Rectangle)g);
 						model.addFigure(r);
 						r.translate(10,10);
 				}
 				if (g instanceof Triangle) {
-						Triangle t = new Triangle(g);
+						Triangle t = new Triangle((Triangle)g);
 						model.addFigure(t);
 						t.translate(10,10);
 				}
 				if (g instanceof Polygon) {
-						Polygon p = new Polygon(g);
+						Polygon p = new Polygon((Polygon)g);
 						model.addFigure(p);
 						p.translate(10,10);
 				}

@@ -21,9 +21,15 @@ public class Model extends Observable{
 	 */
 	private char mode;
 	
+	/**
+	 * Attribute corresponding to the number of Points needed to draw a GeomShape.
+	 */
+	private static int nbPointsRequired = 0;  
+	
 	// CONSTRUCTOR
 	
-	
+
+
 	/**
 	 * No-Arg constructor of the class Model
 	 * initiates a new LinkedList and sets the mode to neutral.
@@ -81,23 +87,27 @@ public class Model extends Observable{
 		 */
 	}
 	
-
-	
-	
 	//GETTER & SETTER
-	
+	/**
+	 * Method getFigureList()
+	 * @return the LinkedList containing all the created figures.
+	 */
 	public LinkedList<GeomShape> getFigureList() {
 		return figureList;
 	}
 	
+	/**
+	 * Method setFigureList()
+	 * @param the LinkedList containing all the created figures.
+	 */
 	public void setFigureList(LinkedList<GeomShape> figureList) {
 		this.figureList = figureList;
 	}
 	
 	/**
-	 * Method getSelected
-	 * Return the figure selected
-	 * @return sel 
+	 * Method getSelected()
+	 * Return the selected figure of the array of figures.
+	 * @return the selected figure of the array of figures. 
 	 */
 	public GeomShape getSelected(){
 		GeomShape sel = null;
@@ -147,6 +157,12 @@ public class Model extends Observable{
 	/**
 	 * Method indicating whether the mode the model is in.
 	 * @return the mode the model is in.
+	 * It can take the following values : 
+	 * 'c' - Creation of a Circle 
+	 * 'r' - Creation of a Rectangle
+	 * 't' - Creation of a Triangle
+	 * 'p' - Creation of a Polygon
+	 * 'n' - Neutral - by default
 	 */
 	public char getMode()
 	{
@@ -155,7 +171,13 @@ public class Model extends Observable{
 	
 	/**
 	 * Method to change the mode of the model
-	 * @param mode - mode to set the model to	 
+	 * @param mode - mode to set the model to.
+	 * It can take the following values : 
+	 * 'c' - Creation of a Circle 
+	 * 'r' - Creation of a Rectangle
+	 * 't' - Creation of a Triangle
+	 * 'p' - Creation of a Polygon
+	 * 'n' - Neutral - by default
 	 */
 	public void setMode(char mode)
 	{
@@ -163,8 +185,22 @@ public class Model extends Observable{
 			case 'r' : this.mode = 'r';
 			case 't' : this.mode = 't';
 			case 'c' : this.mode = 'c';
-			case 'f' : this.mode = 'f';
+			case 'p' : this.mode = 'p';
 			case 'n' : this.mode = 'n';	
 		}
+	}
+	
+	/**
+	 * Method that returns the number of Points needed to draw a GeomShape.
+	 */
+	public static int getNbPointsRequired() {
+		return nbPointsRequired;
+	}
+
+	/**
+	 * Method that sets the number of Points needed to draw a GeomShape.
+	 */
+	public static void setNbPointsRequired(int nbPointsRequired) {
+		Model.nbPointsRequired = nbPointsRequired;
 	}
 }
