@@ -50,7 +50,7 @@ public class VDrawingArea extends JPanel implements Observer {
 	/**
 	 * this method is use to draw every single figure,
 	 * for each figure we check if this is a polygon or a circle type
-	 * in both case we also change the color and if the figure is 
+	 * in both case we also change the colour and if the figure is 
 	 * filled or not
 	 */
 	public void displayAll(Graphics g){
@@ -69,7 +69,7 @@ public class VDrawingArea extends JPanel implements Observer {
         			coordsY[j] = figure.getPointsTab()[j].getY();
         		}
         		g.setColor(figure.getColour());
-        		//check is we need to fill the figure or not
+        		//check if we need to fill the figure or not
         		if (figure.isFilled())
         			g.fillPolygon(coordsX, coordsY, nb_pts);
         		else
@@ -82,7 +82,7 @@ public class VDrawingArea extends JPanel implements Observer {
     			int coin_x = figure.getPointsTab()[0].getX()-radius;
     			int coin_y = figure.getPointsTab()[0].getY()-radius;
     			g.setColor(figure.getColour());
-    			//check is we need to fill the figure or not
+    			//check if we need to fill the figure or not
     			if (figure.isFilled())
     				g.drawOval(coin_x, coin_y, d, d);
     			else
