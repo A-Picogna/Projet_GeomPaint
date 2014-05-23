@@ -7,7 +7,7 @@ public class Main {
 		JFrame frame = new JFrame("GeomPaint");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Model m = new Model();
-		VDrawingArea vda = new VDrawingArea();
+		VDrawingArea vda = new VDrawingArea(m);
 		CDrawingArea cda = new CDrawingArea();
 		ToolBar tb = new ToolBar(m);
 		Organiser paintSoftware = new Organiser(vda,tb);

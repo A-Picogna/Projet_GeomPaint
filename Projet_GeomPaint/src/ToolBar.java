@@ -78,32 +78,47 @@ public class ToolBar extends JToolBar implements ActionListener {
 
 		}
 		if ((JButton)e.getSource() == fill) {
-			int i = model.getSelected();
-			if (i >= 0)
-				GeomShape g = model.getShape(i);
+			GeomShape g = model.getSelected();
+			if (g != null) {
 				if (g.isFilled())
 					g.setFilled(false);
 				else
 					g.setFilled(true);
+			}
 		}
 		if ((JButton)e.getSource() == duplicate) {
-			int i = model.getSelected();
-			if (i >= 0) {
-				GeomShape g1 = model.getShape(i);
-				GeomShape g2 = new GeomShape(g1);
-				g2.translate(10,10);
-				model.addShape(g2);
+			GeomShape g = model.getSelected();
+			if (g != null) {
+				if (g instanceof Circle) {
+						Circle c = new Circle(g);
+						model.addShape(c);
+						c.translate(10,10);
+				}
+				if (g instanceof Rectangle) {
+						Rectangle r = new Rectangle(g);
+						model.addShape(r);
+						r.translate(10,10);
+				}
+				if (g instanceof Triangle) {
+						Triangle t = new Triangle(g);
+						model.addShape(t);
+						t.translate(10,10);
+				}
+				if (g instanceof Polygon) {
+						Polygon p = new Polygon(g);
+						model.addShape(p);
+						p.translate(10,10);
+				}
 			}
 		}
 		if ((JButton)e.getSource() == erase) {
-			int i = model.getSelected();
-			if (i >= 0)
+			GeomShape g = model.getSelected();
+			if (g != null)
 				model.delShape(i);
 		}
 		if ((JComboBox)e.getSource() == colorlist) {
-			int i = model.getSelected();
-			if (i >= 0) {
-				GeomShape g = model.getShape(i);
+			GeomShape g = model.getSelected();
+			if (g != null) {
 				String s = (String)colorlist.getSelectedItem();
 				switch (s) {	
 					case "Rouge":
@@ -130,28 +145,10 @@ public class ToolBar extends JToolBar implements ActionListener {
 			}
 		}
     }
-	public int chooseNumber() {
-		JOptionPane jop = new JOptionPane();
-		String s = (String)JOptionPane.showInputDialog(
-		                    this.getRootPane(),
-		                    "Choisissez le nombre d'angles \n"+"de votre polygone:\n",
-		                    "Customized Dialog",
-		                    JOptionPane.PLAIN_MESSAGE);
 
-		try {
-			int n = Integer.parseInt(s);
-			if (n<3)
-				showWarning(jop, "Le nombre d'angles doit etre superieur a 2");
-			else
-				return n;
-		}
-		catch (NumberFormatException nfe) {
-			showWarning(jop, "Le nombre d'angles du polygone doit etre un entier");
-		}
-	}
 	
-	public void showWarning(JOptionPane jop, String s) {
-		JOptionPane.showMessageDialog(jop, s,
+	public void showWarning(String s) {
+		JOptionPane.showMessageDialog(this.getRootPane(), s,
 		    "Erreur",
 		    JOptionPane.ERROR_MESSAGE);
 	}
