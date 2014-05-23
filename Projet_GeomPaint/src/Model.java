@@ -21,9 +21,15 @@ public class Model extends Observable{
 	 */
 	private char mode;
 	
+	/**
+	 * Attribute corresponding to the number of Points needed to draw a GeomShape.
+	 */
+	private static int nbPointsRequired = 0;  
+	
 	// CONSTRUCTOR
 	
-	
+
+
 	/**
 	 * No-Arg constructor of the class Model
 	 * initiates a new LinkedList and sets the mode to neutral.
@@ -182,5 +188,19 @@ public class Model extends Observable{
 			case 'p' : this.mode = 'p';
 			case 'n' : this.mode = 'n';	
 		}
+	}
+	
+	/**
+	 * Method that returns the number of Points needed to draw a GeomShape.
+	 */
+	public static int getNbPointsRequired() {
+		return nbPointsRequired;
+	}
+
+	/**
+	 * Method that sets the number of Points needed to draw a GeomShape.
+	 */
+	public static void setNbPointsRequired(int nbPointsRequired) {
+		Model.nbPointsRequired = nbPointsRequired;
 	}
 }
