@@ -131,9 +131,10 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 		
 	}
 	/**
-	 * Methode qui renvoie le point plus proche a la souris
-	 * @param p point qui represente la position de la souris
-	 * @return closest point plus proche a la souris
+	 * Method getClosestPoint
+	 * It returns the closest figure point to the mouse  
+	 * @param p point which represents the position of the mouse
+	 * @return closest, point closest to the mouse 
 	 */
 	public Point getClosestPoint(Point p){
 		Point closest = null;
