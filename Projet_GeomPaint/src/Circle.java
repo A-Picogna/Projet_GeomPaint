@@ -7,11 +7,18 @@
  */
 public class Circle extends GeomShape{
 		
-	
+	/**
+	 * Constructor of the class Circle
+	 * admitting an array of 2 points as arguments
+	 * @param data - array of two points corresponding to the centre 
+	 * and to a point on the circle's border
+	 */
 	public Circle (Point[]data)
 	{
-		this.setNumberPoints(2);
-		this.setPointsTab(data);
+		if (data.length == 2){
+			this.setNumberPoints(2);
+			this.setPointsTab(data);			
+		}
 	}
 	
     /**
