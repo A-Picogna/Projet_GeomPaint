@@ -1,37 +1,38 @@
-import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.awt.event.MouseMotionListener;
-import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.Observable;
 import java.util.Observer;
-import javax.swing.JButton;
+
 import javax.swing.JPanel;
-import javax.swing.SwingUtilities;
 
-
+/**
+ * This class is the view of our program
+ * its role is to draw all the figure
+ * every time a change is detected
+ */
 @SuppressWarnings("serial")
 public class VDrawingArea extends JPanel implements Observer {
 
+
 	/**
-	 * This class is the view of our program
-	 * her role is to drawing all the figure
-	 * every time a change is detected
+	 * Attribute corresponding to the model linked with this view.
 	 */
-	
 	private Model model;
 
-	
+	/**
+	 * Constructor of the class VDrawingArea
+	 * @param m - model to be linked with this view.
+	 */
 	public VDrawingArea(Model m){
 		super();
 		this.model = m;
+		
+		// Adding listeners to the View.
+		CDrawingArea cda = new CDrawingArea();
+		this.addMouseListener(cda);
+		this.addMouseMotionListener(cda);
+		
+		this.repaint();
 	}
-	
 	
 	public void paintComponent(Graphics g) {
     	super.paintComponent(g);
