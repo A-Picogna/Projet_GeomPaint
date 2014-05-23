@@ -120,8 +120,10 @@ public class ToolBar extends JToolBar implements ActionListener {
 		}
 		if ((JButton)e.getSource() == erase) {
 			GeomShape g = model.getSelected();
-			if (g != null)
-				model.delShape(i);
+			if (g != null) {
+				int i = model.getFigureList().indexOf(g);
+				model.delFigure(g);
+			}
 		}
 		if ((JComboBox)e.getSource() == colorlist) {
 			GeomShape g = model.getSelected();
