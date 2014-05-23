@@ -21,6 +21,17 @@ public class Circle extends GeomShape{
 		}
 	}
 	
+	/**
+	 * Copy-constructor of the class Circle
+	 * @param c - Circle element to be duplicated.
+	 */
+	public Circle(Circle c)
+	{
+		Point[]data = {c.getPointsTab()[0], c.getPointsTab()[1]};
+		this.setPointsTab(data);
+		this.setNumberPoints(data.length);
+	}
+	
     /**
      * Return true if the given point is contained inside the calling Circle.
      * @param test - The point to check
