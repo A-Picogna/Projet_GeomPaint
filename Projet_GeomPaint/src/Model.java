@@ -143,4 +143,24 @@ public class Model extends Observable{
 	{
 		return this.mode == 'p';
 	}
+
+	/**
+	 * Method indicating whether the mode the model is in.
+	 * @return the mode the model is in.
+	 */
+	public char getMode()
+	{
+		return this.mode;
+	}
+	
+	public void setMode(char mode)
+	{
+		switch (mode){
+			case 'r' : this.mode = 'r';
+			case 't' : this.mode = 't';
+			case 'c' : this.mode = 'c';
+			case 'f' : this.mode = 'f';
+			case 'n' : this.mode = 'n';	
+		}
+	}
 }
