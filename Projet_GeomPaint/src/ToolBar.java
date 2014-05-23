@@ -7,7 +7,7 @@ import java.util.LinkedList;
 
 public class ToolBar extends JToolBar implements ActionListener {
 	private Model model;
-	final ImageIcon circleIcon = new ImageIcon("icons/circle.gif");
+	final ImageIcon circleIcon = createImageIcon("icons/circle.gif");
 	final JButton circle = new JButton(circleIcon);
 	final ImageIcon rectangleIcon = new ImageIcon("icons/rectangle.gif");
 	final JButton rectangle = new JButton(rectangleIcon);
@@ -27,19 +27,19 @@ public class ToolBar extends JToolBar implements ActionListener {
 	public ToolBar (Model m) {
 		super("Outils");
 		model = m;
-		circle.setPreferredSize(new Dimension(50,50));
+		circle.setPreferredSize(new Dimension(30,30));
         this.add(circle);
-        rectangle.setPreferredSize(new Dimension(50,50));
+        //rectangle.setPreferredSize(new Dimension(50,50));
         this.add(rectangle);
-        triangle.setPreferredSize(new Dimension(50,50));     
+        //triangle.setPreferredSize(new Dimension(50,50));     
         this.add(triangle);
-        polygon.setPreferredSize(new Dimension(50,50));
+        //polygon.setPreferredSize(new Dimension(50,50));
         this.add(polygon);
-        fill.setPreferredSize(new Dimension(50,50));
+        //fill.setPreferredSize(new Dimension(50,50));
         this.add(fill);
-        duplicate.setPreferredSize(new Dimension(50,50));
+        //duplicate.setPreferredSize(new Dimension(50,50));
  	    this.add(duplicate);
-        erase.setPreferredSize(new Dimension(50,50));
+        //erase.setPreferredSize(new Dimension(50,50));
         this.add(erase);
         colorlist.setPreferredSize(new Dimension(80,40));
         colorlist.setSelectedIndex(0);
@@ -168,5 +168,14 @@ public class ToolBar extends JToolBar implements ActionListener {
 		    "Erreur",
 		    JOptionPane.ERROR_MESSAGE);
 	}
+	protected static ImageIcon createImageIcon(String path) {
+        java.net.URL imgURL = ToolBar.class.getResource(path);
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + path);
+            return null;
+        }
+    }
 }
 
