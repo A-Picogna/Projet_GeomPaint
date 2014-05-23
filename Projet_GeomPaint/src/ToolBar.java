@@ -20,12 +20,19 @@ public class ToolBar extends JToolBar implements ActionListener {
 	public ToolBar (Model m) {
 		super("Outils");
 		model = m;
+		circle.setPreferredSize(new Dimension(30,30));
         this.add(circle);
+        rectangle.setPreferredSize(new Dimension(30,30));
         this.add(rectangle);
+        triangle.setPreferredSize(new Dimension(30,30));     
         this.add(triangle);
+        polygon.setPreferredSize(new Dimension(30,30));
         this.add(polygon);
+        fill.setPreferredSize(new Dimension(30,30));
         this.add(fill);
- 	    this.add(duplicate);   
+        duplicate.setPreferredSize(new Dimension(30,30));
+ 	    this.add(duplicate);
+        erase.setPreferredSize(new Dimension(30,30));
         this.add(erase);
         colorlist.setSelectedIndex(0);
 		this.add(colorlist);
