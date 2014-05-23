@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 /**
  * Class Circle
  * Describes a Circle.
@@ -13,12 +15,14 @@ public class Circle extends GeomShape{
 	 * @param data - array of two points corresponding to the centre 
 	 * and to a point on the circle's border
 	 */
-	public Circle (Point[]data)
+	public Circle (LinkedList<Point> data)
 	{
 		super();
-		this.setNumberPoints(data.length);
-		this.setPointsTab(data);			
-
+		this.setNumberPoints(data.size());
+		for(int i = 0; i< data.size(); i++)
+		{
+			this.getPointsTab()[i] = data.get(i);	
+		}
 	}
 	
 	/**

@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 /**
  * Class Polygon,
  * describes a polygon figure.
@@ -21,11 +23,14 @@ public class Polygon extends GeomShape {
 	 * admitting an array of points as argument.
 	 * @param data - array of points constituting the Polygon.
 	 */
-	public Polygon(Point[]data)
+	public Polygon(LinkedList<Point> data)
 	{
 		super();
-		this.setNumberPoints(data.length);
-		this.setPointsTab(data);
+		this.setNumberPoints(data.size());
+		for(int i = 0; i< data.size(); i++)
+		{
+			this.getPointsTab()[i] = data.get(i);	
+		}
 	}
 	
 	/**

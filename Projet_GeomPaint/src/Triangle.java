@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 /**
  * Class Triangle,
  * describes a triangular figure.
@@ -11,11 +13,14 @@ public class Triangle extends Polygon {
 	 * Constructor of the class Triangle
 	 * admitting an array of 3 points as argument.
 	 */
-	public Triangle(Point[]data)
+	public Triangle(LinkedList<Point> data)
 	{
 		super();
-		this.setNumberPoints(data.length);
-		this.setPointsTab(data);
+		this.setNumberPoints(data.size());
+		for(int i = 0; i< data.size(); i++)
+		{
+			this.getPointsTab()[i] = data.get(i);	
+		}
 	}
 	
 	/**
