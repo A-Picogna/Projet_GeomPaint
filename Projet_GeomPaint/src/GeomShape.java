@@ -1,11 +1,12 @@
 import java.awt.Color;
+import java.util.Observable;
 
 /**
  * Describes Geometric Figures.
  * @author VILAS
  *
  */
-public abstract class GeomShape {
+public abstract class GeomShape extends Observable{
 
 ////////////////////
 //   ATTRIBUTES   //
