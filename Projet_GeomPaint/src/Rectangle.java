@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 /**
  * Class Rectangle,
  * describes a rectangular figure.
@@ -13,19 +15,19 @@ public class Rectangle extends Polygon{
 	 * @param a - point constituting the top left corner of the Rectangle.
 	 * @param c - point constituting the bottom right corner of the Rectangle.
 	 */
-	public Rectangle(Point a, Point c)
+	public Rectangle(LinkedList<Point> data)
 	{
 		super();
-		int xa = a.getX();
-		int ya = a.getY();
-		int xc = c.getX();
-		int yc = c.getY();
+		int xa = data.get(0).getX();
+		int ya = data.get(0).getY();
+		int xc = data.get(1).getX();
+		int yc = data.get(1).getY();
 		// Creation of an array of points corresponding to the coordinates of the rectangle's angles
 		// from the top left corner to the bottom left corner, clockwise.
-		Point[]data= {new Point(xa,ya), new Point(xc,yc), new Point(xc,yc), new Point(xa,yc)};
+		Point[]params= {new Point(xa,ya), new Point(xc,yc), new Point(xc,yc), new Point(xa,yc)};
 		
-		this.setNumberPoints(data.length);
-		this.setPointsTab(data);
+		this.setNumberPoints(params.length);
+		this.setPointsTab(params);
 	}
 	
 	/**
