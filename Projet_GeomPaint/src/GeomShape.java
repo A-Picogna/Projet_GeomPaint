@@ -43,7 +43,18 @@ public abstract class GeomShape {
 //    METHODS     //
 ////////////////////
 
-
+	/**
+	 * No-arg constructor of the class GeomShape
+	 * crates a default GeomShape.
+	 * Any data regarding the vertices will need to be provided in the subclasses. 
+	 */
+	public GeomShape()
+	{
+		this.colour = Color.black;
+		this.selected = true;
+		this.filled = false;
+	}
+	
 	public abstract boolean contains(Point test);
 	public abstract void translate(int dx, int dy);
 
