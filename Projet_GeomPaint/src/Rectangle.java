@@ -27,5 +27,15 @@ public class Rectangle extends Polygon{
 		this.setNumberPoints(data.length);
 		this.setPointsTab(data);
 	}
+	
+	/**
+	 * Copy-constructor of the class Rectangle
+	 * @param r - Rectangle element to be duplicated.
+	 */
+	public Rectangle(Rectangle r)
+	{
+		this.setNumberPoints(r.getPointsTab().length);
+		this.setPointsTab(r.getPointsTab());
+	}
 
 }
