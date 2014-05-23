@@ -41,7 +41,7 @@ public class Model extends Observable{
 	 * adds a figure to the figureList attribute.
 	 * @param f - figure to be added to the figureList.
 	 */
-	public void addShape(GeomShape f) {
+	public void addFigure(GeomShape f) {
 		if (figureList.isEmpty()){
 			figureList.add(f);
 			figureList.get(figureList.size() - 1).select();
@@ -64,10 +64,10 @@ public class Model extends Observable{
 	}
 	
 	/**
-	 * Method deleteShape()
+	 * Method deleteFigure()
 	 * @param index - index of the figure to be deleted.
 	 */
-	public void delShape(int index){
+	public void delFigure(int index){
 		GeomShape deleted = this.figureList.get(index);
 		this.figureList.remove(index);
 		/*
@@ -79,8 +79,9 @@ public class Model extends Observable{
 		/*
 		 * this.figureDeleted.add(deleted);
 		 */
-		
 	}
+	
+
 	
 	
 	//GETTER & SETTER
@@ -89,7 +90,7 @@ public class Model extends Observable{
 		return figureList;
 	}
 	
-	public void setfigureList(LinkedList<GeomShape> figureList) {
+	public void setFigureList(LinkedList<GeomShape> figureList) {
 		this.figureList = figureList;
 	}
 	
@@ -104,7 +105,42 @@ public class Model extends Observable{
 			if(this.getFigureList().get(i).isSelected())
 				sel = this.getFigureList().get(i);
 		}
-		return sel;
-		
+		return sel;	
+	}
+	
+	/**
+	 * Method indicating whether the user is in a Rectangle creation mode.
+	 * @return true if the user is in a Rectangle creation mode.
+	 */
+	public boolean isRectangleDrawing()
+	{
+		return this.mode == 'r';
+	}
+	
+	/**
+	 * Method indicating whether the user is in a Triangle creation mode.
+	 * @return true if the user is in a Triangle creation mode.
+	 */
+	public boolean isTriangleDrawing()
+	{
+		return this.mode == 't';
+	}
+	
+	/**
+	 * Method indicating whether the user is in a Circle creation mode.
+	 * @return true if the user is in a Circle creation mode.
+	 */
+	public boolean isCircleDrawing()
+	{
+		return this.mode == 'c';
+	}
+	
+	/**
+	 * Method indicating whether the user is in a Polygon creation mode.
+	 * @return true if the user is in a Polygon creation mode.
+	 */
+	public boolean isPolygonDrawing()
+	{
+		return this.mode == 'p';
 	}
 }
