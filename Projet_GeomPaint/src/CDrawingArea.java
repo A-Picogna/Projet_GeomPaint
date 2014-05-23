@@ -12,7 +12,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 	private Model model;
 	private int x,  y, point;
 	private Point p;
-	
+	private LinkedList<Point> data;
 
 	
 	public void mouseDragged(MouseEvent e) {
@@ -33,12 +33,9 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 
 				if(this.model.getSelected().contains(p)){
 					GeomShape figure;
-					int nbPoints;
 					figure = this.model.getSelected();
-			    		nbPoints = figure.getNumberPoints();
-			    		for (int j = 0 ; j < nbPoints-1 ; j++){
-			    			figure.getPointsTab()[j].translate(x, y);
-			    		}
+			    	figure.translate(x, y);
+			    		
 				
 
 				}
@@ -55,19 +52,45 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		x = e.getX();
+		y = e.getY();
+		p = new Point(x, y);
+		
 		//recuperation points dessin de figure
-		
-		
-		
+		if(SwingUtilities.isLeftMouseButton(e) && (model.getMode()!='n')){
+														
+			int nbPoints = model.getNbPointsRequired();
+			if(nbPoints > 0){
+				data.add(p);
+				model.setNbPointsRequired(nbPoints -1);
+				if(model.getNbPointsRequired()==0){
+					
+					switch(model.getMode()){
+					case 'r':
+						model.getFigureList().add(new Rectangle(data));
+						break;
+					case 't':
+						model.getFigureList().add(new Triangle (data));
+						break;
+					case 'c':
+						model.getFigureList().add(new Circle (data));
+						break;
+					/*case 'p':
+					  model.getFigureList().add(new Polygon(data);
+					  */
+					}
+				}
+					
+			}
+			this.model.setMode('n');
+		}
 		
 		
 		//selection de figure
-		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureList().size() > 0 ){
-			x = e.getX();
-			y = e.getY();
-			p = new Point(x, y);
+		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureList().size() > 0 && model.getMode()=='n' ){
 			
-			for (int i =0; i<this.model.getFigureList().size()-1; i++){
+			
+			for (int i =0; i<this.model.getFigureList().size(); i++){
 				//si la figure sur laquel on clic n'est pas selectionée on change son état
 				if(this.model.getFigureList().get(i).contains(p) && !this.model.getFigureList().get(i).isSelected()){
 					this.model.getSelected().unselect();
