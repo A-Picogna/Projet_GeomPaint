@@ -21,11 +21,9 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 			y = e.getY();
 			p = new Point(x, y);
 			
-			if(this.model.getFigureList().size() != 0){
 				//modifier la figure
 
-				if( this.getClosestPoint(p).isNearTo(p)){
-
+				if(this.getClosestPoint(p).isNearTo(p)){
 					this.getClosestPoint(p).translate(x, y);
 				}
 				
@@ -35,12 +33,8 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 					GeomShape figure;
 					figure = this.model.getSelected();
 			    	figure.translate(x, y);
-			    		
-				
-
 				}
-			
-			}
+
 		}
 	}
 
