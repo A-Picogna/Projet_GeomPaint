@@ -8,7 +8,7 @@
 public class Rectangle extends Polygon{
 	
 	/**
-	 * Constructor of the class Polygon
+	 * Constructor of the class Rectangle
 	 * admitting 2 points as arguments.
 	 * @param a - point constituting the top left corner of the Rectangle.
 	 * @param c - point constituting the bottom right corner of the Rectangle.
