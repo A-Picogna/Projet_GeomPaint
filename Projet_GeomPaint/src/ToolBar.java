@@ -7,10 +7,14 @@ import java.util.LinkedList;
 
 public class ToolBar extends JToolBar implements ActionListener {
 	private Model model;
-	final JButton circle = new JButton("Cer");
-	final JButton rectangle = new JButton("Rec");
-    final JButton triangle = new JButton("Tri");
-    final JButton polygon = new JButton("Pol");
+	final ImageIcon circleIcon = new ImageIcon("icons/circle.gif");
+	final JButton circle = new JButton(circleIcon);
+	final ImageIcon rectangleIcon = new ImageIcon("icons/rectangle.gif");
+	final JButton rectangle = new JButton(rectangleIcon);
+	final ImageIcon triangleIcon = new ImageIcon("icons/triangle.gif");
+    final JButton triangle = new JButton(triangleIcon);
+	final ImageIcon polygonIcon = new ImageIcon("icons/polygon.gif");
+    final JButton polygon = new JButton(polygonIcon);
 	final JButton fill = new JButton("R/E");
 	final JButton duplicate=new JButton("Dup");
 	final JButton erase=new JButton("Eff");
@@ -20,19 +24,19 @@ public class ToolBar extends JToolBar implements ActionListener {
 	public ToolBar (Model m) {
 		super("Outils");
 		model = m;
-		circle.setPreferredSize(new Dimension(30,30));
+		circle.setPreferredSize(new Dimension(50,50));
         this.add(circle);
-        rectangle.setPreferredSize(new Dimension(30,30));
+        rectangle.setPreferredSize(new Dimension(50,50));
         this.add(rectangle);
-        triangle.setPreferredSize(new Dimension(30,30));     
+        triangle.setPreferredSize(new Dimension(50,50));     
         this.add(triangle);
-        polygon.setPreferredSize(new Dimension(30,30));
+        polygon.setPreferredSize(new Dimension(50,50));
         this.add(polygon);
-        fill.setPreferredSize(new Dimension(30,30));
+        fill.setPreferredSize(new Dimension(50,50));
         this.add(fill);
-        duplicate.setPreferredSize(new Dimension(30,30));
+        duplicate.setPreferredSize(new Dimension(50,50));
  	    this.add(duplicate);
-        erase.setPreferredSize(new Dimension(30,30));
+        erase.setPreferredSize(new Dimension(50,50));
         this.add(erase);
         colorlist.setSelectedIndex(0);
 		this.add(colorlist);
