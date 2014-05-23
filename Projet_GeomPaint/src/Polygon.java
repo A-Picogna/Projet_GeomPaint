@@ -8,15 +8,26 @@
 public class Polygon extends GeomShape {
 	
 	/**
+	 * No-arg constructor of the class Polygon
+	 * crates a default Polygon.
+	 */
+	public Polygon()
+	{
+		super();
+	}
+	
+	/**
 	 * Constructor of the class Polygon
 	 * admitting an array of points as argument.
 	 * @param data - array of points constituting the Polygon.
 	 */
 	public Polygon(Point[]data)
 	{
+		super();
 		this.setNumberPoints(data.length);
 		this.setPointsTab(data);
 	}
+	
     /**
      * Return true if the given point is contained inside the boundary.
      * @param test The point to check
