@@ -65,10 +65,21 @@ public class Model extends Observable{
 	
 	/**
 	 * Method deleteShape()
-	 * @param mod
+	 * @param index - index of the figure to be deleted.
 	 */
 	public void delShape(int index){
-					
+		GeomShape deleted = this.figureList.get(index);
+		this.figureList.remove(index);
+		/*
+		 * This section prepares for an eventual array that would contain all deleted figures
+		 * in case the user would need to retrieve them afterwards.
+		 * It would require adding another attribute :
+		 * LinkedList<GeomShape> figureDeleted
+		 * */
+		/*
+		 * this.figureDeleted.add(deleted);
+		 */
+		
 	}
 	
 	
