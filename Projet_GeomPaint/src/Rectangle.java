@@ -34,6 +34,7 @@ public class Rectangle extends Polygon{
 	 */
 	public Rectangle(Rectangle r)
 	{
+		super();
 		this.setNumberPoints(r.getPointsTab().length);
 		this.setPointsTab(r.getPointsTab());
 	}

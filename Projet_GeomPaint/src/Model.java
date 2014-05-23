@@ -26,7 +26,7 @@ public class Model extends Observable{
 	
 	/**
 	 * No-Arg constructor of the class Model
-	 * initiates a new LinkedList.
+	 * initiates a new LinkedList and sets the mode to neutral.
 	 */
 	public Model() {
     	this.figureList = new LinkedList<GeomShape>();
@@ -68,7 +68,7 @@ public class Model extends Observable{
 	 * @param index - index of the figure to be deleted.
 	 */
 	public void delFigure(int index){
-		GeomShape deleted = this.figureList.get(index);
+		// 	GeomShape deleted = this.figureList.get(index);
 		this.figureList.remove(index);
 		/*
 		 * This section prepares for an eventual array that would contain all deleted figures
@@ -153,6 +153,10 @@ public class Model extends Observable{
 		return this.mode;
 	}
 	
+	/**
+	 * Method to change the mode of the model
+	 * @param mode - mode to set the model to	 
+	 */
 	public void setMode(char mode)
 	{
 		switch (mode){

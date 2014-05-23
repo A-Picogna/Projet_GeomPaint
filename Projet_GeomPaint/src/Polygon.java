@@ -28,6 +28,17 @@ public class Polygon extends GeomShape {
 		this.setPointsTab(data);
 	}
 	
+	/**
+	 * Copy-constructor of the class Polygon
+	 * @param p - Polygon element to be duplicated.
+	 */
+	public Polygon(Polygon p)
+	{
+		super();
+		this.setNumberPoints(p.getPointsTab().length);
+		this.setPointsTab(p.getPointsTab());
+	}
+	
     /**
      * Return true if the given point is contained inside the boundary.
      * @param test The point to check
