@@ -57,6 +57,9 @@ public class Model extends Observable{
 			figureList.add(f);
 			figureList.get(figureList.size() - 1).select();
 		}
+		// Notifying the view of the change of state for display purpose.
+		setChanged();
+		notifyObservers();
 	}
 	
 	
@@ -65,8 +68,9 @@ public class Model extends Observable{
 	 * Goes through the figureList and unselects all the figures.
 	 */
 	public void unselectAll(){
-		for(int i=0 ; i < figureList.size() ; i++)
-			this.figureList.get(i).unselect();		
+		for(int i=0 ; i < figureList.size() ; i++){
+			this.figureList.get(i).unselect();
+		}		
 	}
 	
 	/**
@@ -85,6 +89,10 @@ public class Model extends Observable{
 		/*
 		 * this.figureDeleted.add(deleted);
 		 */
+		
+		// Notifying the view of the change of state for display purpose.
+		setChanged();
+		notifyObservers();
 	}
 	
 	//GETTER & SETTER
@@ -102,6 +110,9 @@ public class Model extends Observable{
 	 */
 	public void setFigureList(LinkedList<GeomShape> figureList) {
 		this.figureList = figureList;
+		// Notifying the view of the change of state for display purpose.
+		setChanged();
+		notifyObservers();
 	}
 	
 	/**
@@ -188,6 +199,9 @@ public class Model extends Observable{
 			case 'p' : this.mode = 'p';
 			case 'n' : this.mode = 'n';	
 		}
+		// Notifying the view of the change of state for display purpose.
+		setChanged();
+		notifyObservers();
 	}
 	
 	/**
@@ -202,5 +216,6 @@ public class Model extends Observable{
 	 */
 	public static void setNbPointsRequired(int nbPointsRequired) {
 		Model.nbPointsRequired = nbPointsRequired;
+		// Notifying the view of the change of state for display purpose.
 	}
 }
