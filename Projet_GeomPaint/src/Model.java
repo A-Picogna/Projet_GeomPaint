@@ -37,11 +37,11 @@ public class Model extends Observable{
 	
 
 	/**
-	 * Method addFigure(GeomShape)
+	 * Method addShape(GeomShape)
 	 * adds a figure to the figureList attribute.
 	 * @param f - figure to be added to the figureList.
 	 */
-	public void addFigure(GeomShape f) {
+	public void addShape(GeomShape f) {
 		if (figureList.isEmpty()){
 			figureList.add(f);
 			figureList.get(figureList.size() - 1).select();
@@ -64,10 +64,10 @@ public class Model extends Observable{
 	}
 	
 	/**
-	 * Method deleteFigure()
+	 * Method deleteShape()
 	 * @param mod
 	 */
-	public void deleteFigure(Model mod){
+	public void delShape(int index){
 					
 	}
 	

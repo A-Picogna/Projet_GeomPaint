@@ -7,8 +7,8 @@
  */
 public class Polygon extends GeomShape {
 	
+	public
 	
-
     /**
      * Return true if the given point is contained inside the boundary.
      * @param test The point to check
