@@ -10,7 +10,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 	
 	//ATTRIBUTES
 	private Model model;
-	private int x, y, last_x, last_y, point;
+	private int x, y, last_x, last_y;
 	private Point p;
 	private LinkedList<Point> data;
 
