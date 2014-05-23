@@ -27,7 +27,7 @@ public class VDrawingArea extends JPanel implements Observer {
 		this.model = m;
 		
 		// Adding listeners to the View.
-		CDrawingArea cda = new CDrawingArea();
+		CDrawingArea cda = new CDrawingArea(m);
 		this.addMouseListener(cda);
 		this.addMouseMotionListener(cda);
 		

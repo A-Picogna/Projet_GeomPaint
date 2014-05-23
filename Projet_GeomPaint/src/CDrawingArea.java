@@ -14,6 +14,10 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 	private Point p;
 	private LinkedList<Point> data;
 
+	//CONSTRUCTEUR
+	public CDrawingArea(Model m){
+		this.model = m;
+	}
 	
 	public void mouseDragged(MouseEvent e) {
 		
@@ -54,6 +58,7 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 		p = new Point(x, y);
 		
 		//recuperation points dessin de figure
+		
 		if(SwingUtilities.isLeftMouseButton(e) && (model.getMode()!='n')){
 														
 			int nbPoints = Model.getNbPointsRequired();
@@ -73,8 +78,8 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 						model.getFigureList().add(new Circle(data));
 						break;
 					/*case 'p':
-					  model.getFigureList().add(new Polygon(data);
-					  */
+					  model.getFigureList().add(new Polygon(data);*/
+					  
 					}
 				}		
 			}
@@ -86,14 +91,14 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureList().size() > 0 && model.getMode()=='n' ){
 
 			for (int i =0; i<this.model.getFigureList().size(); i++){
-				//si la figure sur laquel on clic n'est pas selectionée on change son état
+				//si la figure sur laquel on clic n'est pas selectionée on change son état et on change aussi l'etat de la figure qui était selectionée
 				if(this.model.getFigureList().get(i).contains(p)){
 					if(!this.model.getFigureList().get(i).isSelected()){
 						this.model.getSelected().unselect();
 						this.model.getFigureList().get(i).select();
 					}
 				}else{
-					//si on clic en dehors de la figure selectionée on deselctionne la figure qui etait selectionée 
+					//si on clic en dehors de la figure selectionée on deselctionne la figure qui était selectionée 
 					if (this.model.getFigureList().get(i).isSelected()){
 						this.model.getFigureList().get(i).unselect();	
 					}
