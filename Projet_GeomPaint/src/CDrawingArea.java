@@ -56,11 +56,11 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 		//recuperation points dessin de figure
 		if(SwingUtilities.isLeftMouseButton(e) && (model.getMode()!='n')){
 														
-			int nbPoints = model.getNbPointsRequired();
+			int nbPoints = Model.getNbPointsRequired();
 			if(nbPoints > 0){
 				data.add(p);
-				model.setNbPointsRequired(nbPoints -1);
-				if(model.getNbPointsRequired()==0){
+				Model.setNbPointsRequired(nbPoints -1);
+				if(Model.getNbPointsRequired()==0){
 					
 					switch(model.getMode()){
 					case 'r':
@@ -76,32 +76,32 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 					  model.getFigureList().add(new Polygon(data);
 					  */
 					}
-				}
-					
+				}		
 			}
-			
 			this.model.setMode('n');
 		}
 		
 		
 		//selection de figure
 		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureList().size() > 0 && model.getMode()=='n' ){
-			
-			
+
 			for (int i =0; i<this.model.getFigureList().size(); i++){
 				//si la figure sur laquel on clic n'est pas selectionée on change son état
-				if(this.model.getFigureList().get(i).contains(p) && !this.model.getFigureList().get(i).isSelected()){
-					this.model.getSelected().unselect();
-					this.model.getFigureList().get(i).select();
-				}
-				//si on clic en dehors de la figure selectionée on deselctionne la figure qui etait selectionée 
-				if(!this.model.getFigureList().get(i).contains(p) && this.model.getFigureList().get(i).isSelected()){
-					this.model.getFigureList().get(i).unselect();
-				}
+				if(this.model.getFigureList().get(i).contains(p)){
+					if(!this.model.getFigureList().get(i).isSelected()){
+						this.model.getSelected().unselect();
+						this.model.getFigureList().get(i).select();
+					}
+				}else{
+					//si on clic en dehors de la figure selectionée on deselctionne la figure qui etait selectionée 
+					if (this.model.getFigureList().get(i).isSelected()){
+						this.model.getFigureList().get(i).unselect();	
+					}
+				}	
 			}
 		}
-		
 	}
+		
 
 	@Override
 	public void mouseEntered(MouseEvent e) {
