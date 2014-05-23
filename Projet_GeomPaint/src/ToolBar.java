@@ -15,9 +15,12 @@ public class ToolBar extends JToolBar implements ActionListener {
     final JButton triangle = new JButton(triangleIcon);
 	final ImageIcon polygonIcon = new ImageIcon("icons/polygon.gif");
     final JButton polygon = new JButton(polygonIcon);
-	final JButton fill = new JButton("R/E");
-	final JButton duplicate=new JButton("Dup");
-	final JButton erase=new JButton("Eff");
+	final ImageIcon fillIcon = new ImageIcon("icons/fill.gif"); 
+	final JButton fill = new JButton(fillIcon);
+	final ImageIcon duplicateIcon = new ImageIcon("icons/duplicate.gif");
+	final JButton duplicate=new JButton(duplicateIcon);
+	final ImageIcon eraseIcon = new ImageIcon("icons/erase.gif");
+	final JButton erase=new JButton(eraseIcon);
     final String[] colorstrings = { "Noir", "Rouge", "Bleu", "Jaune", "Vert", "Orange", "Rose"};
     final JComboBox colorlist = new JComboBox(colorstrings);
 	
