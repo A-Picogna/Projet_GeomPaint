@@ -33,12 +33,9 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 
 				if(this.model.getSelected().contains(p)){
 					GeomShape figure;
-					int nbPoints;
 					figure = this.model.getSelected();
-			    		nbPoints = figure.getNumberPoints();
-			    		for (int j = 0 ; j < nbPoints-1 ; j++){
-			    			figure.getPointsTab()[j].translate(x, y);
-			    		}
+			    	figure.translate(x, y);
+			    		
 				
 
 				}
@@ -55,19 +52,46 @@ public class CDrawingArea implements MouseListener, MouseMotionListener {
 
 	@Override
 	public void mouseClicked(MouseEvent e) {
+		x = e.getX();
+		y = e.getY();
+		p = new Point(x, y);
+		Point[] tabPoint;
 		//recuperation points dessin de figure
-		
-		
-		
+		if(SwingUtilities.isLeftMouseButton(e) && (model.getMode()!='n')){
+														
+			
+			int nbPointsRequired;
+			if(this.model.getMode()=='r'){
+				nbPointsRequired = 2;
+				tabPoint = new Point[2];
+			}
+			if(this.model.getMode()=='t'){
+				nbPointsRequired = 3;
+				tabPoint = new Point[3];
+			}
+			if(this.model.getMode()=='p'){
+				int n = model.getCounter();
+				nbPointsRequired = n;
+				tabPoint = new Point[n];
+			}
+			if(this.model.getMode()=='c'){
+				nbPointsRequired = 2;
+				tabPoint = new Point[2];
+			}
+			for(int i = 0; i<nbPointsRequired; i++){
+				tabPoint[i] = p;
+				
+				
+			}
+			this.model.setMode('n');
+		}
 		
 		
 		//selection de figure
-		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureList().size() > 0 ){
-			x = e.getX();
-			y = e.getY();
-			p = new Point(x, y);
+		if(SwingUtilities.isLeftMouseButton(e) && model.getFigureList().size() > 0 && model.getMode()=='n' ){
 			
-			for (int i =0; i<this.model.getFigureList().size()-1; i++){
+			
+			for (int i =0; i<this.model.getFigureList().size(); i++){
 				//si la figure sur laquel on clic n'est pas selectionée on change son état
 				if(this.model.getFigureList().get(i).contains(p) && !this.model.getFigureList().get(i).isSelected()){
 					this.model.getSelected().unselect();
