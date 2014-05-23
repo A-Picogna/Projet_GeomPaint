@@ -9,17 +9,17 @@ public class ToolBar extends JToolBar implements ActionListener {
 	private Model model;
 	final ImageIcon circleIcon = createImageIcon("icons/circle.gif");
 	final JButton circle = new JButton(circleIcon);
-	final ImageIcon rectangleIcon = new ImageIcon("icons/rectangle.gif");
+	final ImageIcon rectangleIcon = createImageIcon("icons/rectangle.gif");
 	final JButton rectangle = new JButton(rectangleIcon);
-	final ImageIcon triangleIcon = new ImageIcon("icons/triangle.gif");
+	final ImageIcon triangleIcon = createImageIcon("icons/triangle.gif");
     final JButton triangle = new JButton(triangleIcon);
-	final ImageIcon polygonIcon = new ImageIcon("icons/polygon.gif");
+	final ImageIcon polygonIcon = createImageIcon("icons/polygon.gif");
     final JButton polygon = new JButton(polygonIcon);
-	final ImageIcon fillIcon = new ImageIcon("icons/fill.gif"); 
+	final ImageIcon fillIcon = createImageIcon("icons/fill.gif"); 
 	final JButton fill = new JButton(fillIcon);
-	final ImageIcon duplicateIcon = new ImageIcon("icons/duplicate.gif");
+	final ImageIcon duplicateIcon = createImageIcon("icons/duplicate.gif");
 	final JButton duplicate=new JButton(duplicateIcon);
-	final ImageIcon eraseIcon = new ImageIcon("icons/erase.gif");
+	final ImageIcon eraseIcon = createImageIcon("icons/erase.gif");
 	final JButton erase=new JButton(eraseIcon);
     final String[] colorstrings = { "Noir", "Rouge", "Bleu", "Jaune", "Vert", "Orange", "Rose"};
     final JComboBox colorlist = new JComboBox(colorstrings);
@@ -41,7 +41,7 @@ public class ToolBar extends JToolBar implements ActionListener {
  	    this.add(duplicate);
         //erase.setPreferredSize(new Dimension(50,50));
         this.add(erase);
-        colorlist.setPreferredSize(new Dimension(80,40));
+        colorlist.setMaximumSize(new Dimension(80,100));
         colorlist.setSelectedIndex(0);
 		this.add(colorlist);
 		
