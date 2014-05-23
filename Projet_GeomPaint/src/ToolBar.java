@@ -102,22 +102,22 @@ public class ToolBar extends JToolBar implements ActionListener {
 			if (g != null) {
 				if (g instanceof Circle) {
 						Circle c = new Circle(g);
-						model.addShape(c);
+						model.addFigure(c);
 						c.translate(10,10);
 				}
 				if (g instanceof Rectangle) {
 						Rectangle r = new Rectangle(g);
-						model.addShape(r);
+						model.addFigure(r);
 						r.translate(10,10);
 				}
 				if (g instanceof Triangle) {
 						Triangle t = new Triangle(g);
-						model.addShape(t);
+						model.addFigure(t);
 						t.translate(10,10);
 				}
 				if (g instanceof Polygon) {
 						Polygon p = new Polygon(g);
-						model.addShape(p);
+						model.addFigure(p);
 						p.translate(10,10);
 				}
 			}
