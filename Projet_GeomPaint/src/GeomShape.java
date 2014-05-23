@@ -56,7 +56,20 @@ public abstract class GeomShape {
 	}
 	
 	public abstract boolean contains(Point test);
-	public abstract void translate(int dx, int dy);
+	
+	/**
+	 * Method translate()
+	 * Method that moves a figure as per the data given as argument.
+	 * @param dx - variation abscissa-wise.
+	 * @param dy - variation ordinate-wise.
+	 */
+	public void translate(int dx, int dy)
+	{
+		for (int i = 0 ; i < this.getPointsTab().length ; i++){
+			this.getPointsTab()[i].translate(dx, dy);
+			}
+	}
+
 
 
 ///////////////////////
