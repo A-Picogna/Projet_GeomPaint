@@ -78,10 +78,9 @@ public class ToolBar extends JToolBar implements ActionListener {
 								"du polygone\n"+
 								"doit etre superieur a 2\n");
 				else {
-					return;
 					model.setMode('p');
-/*					Polygone p = new Polygone(3);
-					model.addShape(p);*/
+/*					model.setCounter(n);*/
+					return;
 				}
 			}
 			catch (NumberFormatException nfe) {
@@ -104,22 +103,22 @@ public class ToolBar extends JToolBar implements ActionListener {
 			GeomShape g = model.getSelected();
 			if (g != null) {
 				if (g instanceof Circle) {
-						Circle c = new Circle(g);
+						Circle c = new Circle((Circle)g);
 						model.addFigure(c);
 						c.translate(10,10);
 				}
 				if (g instanceof Rectangle) {
-						Rectangle r = new Rectangle(g);
+						Rectangle r = new Rectangle((Rectangle)g);
 						model.addFigure(r);
 						r.translate(10,10);
 				}
 				if (g instanceof Triangle) {
-						Triangle t = new Triangle(g);
+						Triangle t = new Triangle((Triangle)g);
 						model.addFigure(t);
 						t.translate(10,10);
 				}
 				if (g instanceof Polygon) {
-						Polygon p = new Polygon(g);
+						Polygon p = new Polygon((Polygon)g);
 						model.addFigure(p);
 						p.translate(10,10);
 				}
